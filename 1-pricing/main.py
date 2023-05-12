@@ -1,4 +1,3 @@
-
 from typing import List
 from coffee import Item, HotDrink, ColdDrink, BlendedDrink, MilkTea, Sandwich, Bagel, LEFT_ALIGN, RIGHT_ALIGN
 
@@ -133,7 +132,7 @@ def calculatePrice3(drinkType: str, size: str, hasWhippedCream: bool, milkOption
     """
     assert (drinkType in DRINK), "Invalid drink type."
     if drinkType == "hot":
-        return HotDrink(size, hasWhippedCream, chocolatePumps).calculatePrice()
+        return HotDrink(size, hasWhippedCream, milkOption, chocolatePumps).calculatePrice()
     return calculatePrice2(drinkType, size, hasWhippedCream, milkOption)
 
 
@@ -194,8 +193,8 @@ def calculatePrice5(items: List[Item], tax_rate: float) -> float:
 
 if __name__ == "__main__":
     items = [
-        HotDrink('s', False, 2),
-        HotDrink('m', True, 6),
+        HotDrink('s', False, None, 2),
+        HotDrink('m', True, None, 6),
         ColdDrink('xl', False, "Whole milk"),
         BlendedDrink('xl', False),
         MilkTea('xl', True, "Almond milk"),

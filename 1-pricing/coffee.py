@@ -112,8 +112,8 @@ class HotDrink(Drink):
     # adding chocolate sauce to the topping
     TOPPING = {"Whipped cream": 0.5, "Chocolate Sauce": 0.5}
 
-    def __init__(self, size: str, hasWhippedCream: bool, chocolatePumps: int = 0):
-        super().__init__(size, hasWhippedCream)
+    def __init__(self, size: str, hasWhippedCream: bool, milkOption: str = None, chocolatePumps: int = 0):
+        super().__init__(size, hasWhippedCream, milkOption)
         assert (0 <= chocolatePumps <=
                 6), "You can only get maximum of 6 pumps of chocolate sauce."
         self.chocolatePumps = chocolatePumps
