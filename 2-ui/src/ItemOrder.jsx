@@ -16,20 +16,28 @@ function ItemOrder({item}) {
 
     return (
         <div className="flex flex-col items-start w-1/3 border-[1px] min-w-[400px] max-w-[500px] rounded-sm border-solid border-black m-5">
+            { /* Item general information */}
             <div className="flex flex-row w-full justify-between items-center p-4">
-            <div className="flex flex-col items-start">
-                <h1 className="text-3xl font-black mb-2">{translation[lang][item.name]}</h1>
-                <h1 className="mb-1 mt-2 text-lg">${item.basePrice}</h1>
-            </div>
-            <img src={require(`./img/${item.name}.jpeg`)} className="w-24 h-24 object-cover rounded-sm"/>
+                <div className="flex flex-col items-start">
+                    { /* Item name */}
+                    <h1 className="text-3xl font-black mb-2">{translation[lang][item.name]}</h1>
+                    { /* Base price */}
+                    <h1 className="mb-1 mt-2 text-lg">${item.basePrice}</h1>
+                </div>
+                { /* Item image */}
+                <img src={require(`./img/${item.name}.jpeg`)} className="w-24 h-24 object-cover rounded-sm"/>
             </div>
             
             <hr className="border-black border-t-[1px] rounded-sm w-full" />
+
+            { /* List of options */}
             <div className="p-3 flex flex-col items-start w-full">
                 {
                     options.map(option => <div className="mb-2 pb-3 border-b-[1px] border-black w-full"><Option item={item} option={option} uniPrice={unitPrice} setUnitPrice={setUnitPrice}/></div>)
                 }
             </div>
+
+            { /* Footer */}
             <div className="flex flex-row justify-between items-center w-full py-3 px-5 mt-[-20px]">
                 <input className="text-sm text-white  bg-gray-900 pl-6 p-[2.5px] rounded-sm" onChange={handleOnChange} type="number" defaultValue={1} min={1} max={5}/>
                 <button className="text-sm text-white bg-gray-900 px-3 py-1 rounded-sm">Add ${unitPrice * numItems}</button>
